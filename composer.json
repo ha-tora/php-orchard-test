@@ -1,0 +1,17 @@
+{
+    "name": "test/orchard",
+    "description": "Test app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Test\\Orchard\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ha-tora",
+            "email": "j.2374.04@gmail.com"
+        }
+    ],
+    "require": {}
+}
