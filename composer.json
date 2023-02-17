@@ -13,5 +13,7 @@
             "email": "j.2374.04@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
 }
