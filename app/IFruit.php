@@ -4,7 +4,7 @@ namespace Test\Orchard;
 
 interface IFruit
 {
-    public function getFruitType() : string;
+    public function getFruitType(): string;
 
-    public function getWeight() : int;
+    public function getWeight(): int;
 }

@@ -4,14 +4,10 @@ namespace Test\Orchard;
 
 interface ITree
 {
-    public function getTreeType() : string;
+    public function getTreeType(): string;
 
     /**
      * @return IFruit[]
      */
-    public function getFruits() : array;
-
-    public function getFruitsCount() : array;
-
-    public function getFruitsWeight() : array;
+    public function getFruits(): array;
 }

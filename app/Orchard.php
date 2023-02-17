@@ -4,7 +4,9 @@ namespace Test\Orchard;
 
 class Orchard
 {
-    protected $trees;
+    protected $trees = [];
+
+    protected $fruits = [];
 
     public function __construct(ITree...$trees)
     {
@@ -16,22 +18,45 @@ class Orchard
         $this->trees = array_merge($this->trees, $trees);
     }
 
+    public function collectFruits(): void
+    {
+        $fruits = [];
+
+        foreach ($this->trees as $tree) {
+            $fruits = array_merge($fruits, $tree->getFruits());
+        }
+
+        $this->fruits = $fruits;
+    }
+
     public function getAllFruits(): array
+    {
+        return $this->fruits;
+    }
+
+    public function getFruitsCount(): array
     {
         $result = [];
 
-        foreach ($this->trees as $tree) {
-            if (!array_key_exists($tree->getTreeType(), $result)) {
-                array_push($result, [
-                    $tree->getTreeType() => [
-                        'count' => 0,
-                        'weight' => 0
-                    ]
-                ]);
+        foreach ((array) $this->fruits as $fruit) {
+            if (!array_key_exists((string) $fruit->getFruitType(), $result)) {
+                $result[$fruit->getFruitType()] = 0;
             }
 
-            $result[$tree->getTreeType()]['count'] += $tree->getFruitsCount();
-            $result[$tree->getTreeType()]['weight'] += $tree->getFruitsWeight();
+            $result[$fruit->getFruitType()] += 1;
+        }
+
+        return $result;
+    }
+
+    public function getFruitsWeight()
+    {
+        foreach ($this->fruits as $fruit) {
+            if (!array_key_exists($fruit->getFruitType(), $result)) {
+                $result[$fruit->getFruitType()] = 0;
+            }
+
+            $result[$fruit->getFruitType()] += $fruit->getWeight();
         }
 
         return $result;
