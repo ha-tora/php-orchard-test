@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Test\Orchard\Fruits\Pear;
+use Test\Orchard\IFruit;
 
 class PearTest extends TestCase
 {
@@ -10,6 +11,11 @@ class PearTest extends TestCase
     public function setUp(): void
     {
         $this->pear = new Pear;
+    }
+
+    public function test_pear_is_fruit()
+    {
+        $this->assertInstanceOf(IFruit::class, $this->pear);
     }
 
     public function test_pear_is_pear(): void

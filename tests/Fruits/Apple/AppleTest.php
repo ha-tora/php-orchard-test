@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Test\Orchard\Fruits\Apple;
+use Test\Orchard\IFruit;
 
 class AppleTest extends TestCase
 {
@@ -10,6 +11,11 @@ class AppleTest extends TestCase
     public function setUp(): void
     {
         $this->apple = new Apple;
+    }
+
+    public function test_apple_is_fruit()
+    {
+        $this->assertInstanceOf(IFruit::class, $this->apple);
     }
 
     public function test_apple_is_apple()
