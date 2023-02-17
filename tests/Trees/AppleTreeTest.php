@@ -29,7 +29,7 @@ class AppleTreeTest extends TestCase
         $fruits = $this->appleTree->getFruits();
 
         $this->assertIsArray($fruits);
-        $this->assertInstanceOf(Apple::class, $fruits[0]);
+        $this->assertContainsOnlyInstancesOf(Apple::class, $fruits);
         $this->assertTrue(count($fruits) <= 50);
         $this->assertTrue(count($fruits) >= 40);
     }

@@ -51,6 +51,8 @@ class Orchard
 
     public function getFruitsWeight()
     {
+        $result = [];
+
         foreach ($this->fruits as $fruit) {
             if (!array_key_exists($fruit->getFruitType(), $result)) {
                 $result[$fruit->getFruitType()] = 0;

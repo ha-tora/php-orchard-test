@@ -29,7 +29,7 @@ class PearTreeTest extends TestCase
         $fruits = $this->pearTree->getFruits();
 
         $this->assertIsArray($fruits);
-        $this->assertInstanceOf(Pear::class, $fruits[0]);
+        $this->assertContainsOnlyInstancesOf(Pear::class, $fruits);
         $this->assertTrue(count($fruits) <= 20);
         $this->assertTrue(count($fruits) >= 0);
     }
